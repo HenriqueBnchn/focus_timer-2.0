@@ -18,31 +18,36 @@ const {
   icon_forest,
   icon_rain,
 
-  timerTimeout
+
 } = Elements
 
+let timerTimeout
 
 function countdown(){
 
-  timerTimeout =setTimeout(function(){
+  timerTimeout =  setTimeout(function(){
     let cr_minute = Number(minutesDisplay.textContent)
     let cr_second = Number(secondsDisplay.textContent)
+    let isFinished = cr_minute <= 0 && cr_second <= 0
   
-    if(cr_minute <= 0 && cr_second <= 0){
-
+    if(isFinished){
+      console.log('cabo')
+      return
     }
 
     if(cr_second <= 0){
-      cr_second = 60
+      cr_second = 2
       --cr_minute
     }
 
+    
+    --cr_second
+
+    secondsDisplay.textContent = cr_second
+    minutesDisplay.textContent = cr_minute
+
+    countdown()
   }, 1000)
-
 }
 
-function plusTime(){
-  let current_minute = Number(minutesDisplay.textContent)
-
-
-}
+countdown()

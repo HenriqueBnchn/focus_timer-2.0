@@ -15,7 +15,6 @@ const icon_rain = document.querySelector("#rain-icon")
 const btn_fire = document.querySelector("#fire")
 const icon_fire = document.querySelector("#fire-icon")
 
-let timerTimeout
 
 
 
@@ -31,11 +30,11 @@ export const Elements ={
   icon_forest,
   btn_rain,
   icon_rain,
-  
+
   btn_play,
   btn_stop,
   btn_plus,
   btn_minus,
 
-  timerTimeout
+  
 }
