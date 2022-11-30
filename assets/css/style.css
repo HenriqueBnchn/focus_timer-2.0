@@ -6,9 +6,9 @@
 
 :root{
   font-size: 62.5%;
-  --bg-btn-primary: #E1E1E6;
+  --bg-btn-primary: rgb(225, 225, 230);
   --bg-btn-primary-active: #99999e;
-  --bg-btn-secondary: #02799D;
+  --bg-btn-secondary: rgb(2, 121, 157);
   --box-shadow-primary: #acacac;
   --box-shadow-secondary: #666;
 }
@@ -29,10 +29,11 @@ main{
   justify-content: center;
 }
 
-#timer-section{
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
+@media (max-width: 900px) {
+  main{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 #timer-panel span{
@@ -40,6 +41,23 @@ main{
   font-weight: 700;
   text-shadow: #aeaeae -8px 8px 0px;
 }
+
+@media (max-width: 390px) {
+  #timer-panel span{
+    font-size: 9rem;
+  }
+  .sound-btn{
+    padding: 3rem;
+  }
+}
+
+#timer-section{
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+
 
 #timer-controls{
   display: flex;
@@ -62,12 +80,25 @@ main{
   gap: 3.2rem;
 }
 
+
+
 .sound-btn{
   background-color: var(--bg-btn-primary);
-  padding: 4.8rem;
+  padding: 3rem;
   border-radius: 2.0rem;
   box-shadow: -8px 8px var(--box-shadow-primary);
   transition:0.1s;
+}
+.sound-btn svg{
+  transform: scale(60%);
+}
+@media (min-width: 390px) {
+  .sound-btn{
+    padding: 4.8rem;
+  }
+  .sound-btn svg{
+    transform: scale(100%);
+  }
 }
 
 .sound-btn:hover{
@@ -80,3 +111,6 @@ main{
 
   transform: translate(-2px, 3px);
 }
+
+
+
