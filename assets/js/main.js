@@ -92,14 +92,15 @@ btn_minus.addEventListener('click', function(){
 
 
 
-const forest_audio = document.querySelector('#forest-audio')
-const rain_audio = document.querySelector('#rain-audio')
-const crowd_audio = document.querySelector('#crowd-audio')
-const fire_audio = document.querySelector('#fire-audio')
+// const forest_audio = document.querySelector('#forest-audio')
+// const rain_audio = document.querySelector('#rain-audio')
+// const crowd_audio = document.querySelector('#crowd-audio')
+// const fire_audio = document.querySelector('#fire-audio')
 
 const bg_btn_active = "rgb(2, 121, 157)"
 const bg_btn_inactive = "rgb(225, 225, 230)"
-let isActive = false
+let running
+
 
 function changeButtonIconColor(elem){
   let icon = String(elem.id) + "-icon"
@@ -115,26 +116,29 @@ function changeButtonIconColor(elem){
   }
 }
 
+
+
 function verifySoundState(elem){
-  let audio = elem.id
-  audio = document.querySelector(`#${audio}-audio`)
-  if(isActive == false){
+  let id = elem.id
+  let audio = document.querySelector(`#${id}-audio`)
+
+  if(running == undefined){
     audio.play()
     changeButtonIconColor(elem)
-    isActive = true
+    running = id
   }else{
     audio.pause()
     changeButtonIconColor(elem)
-    isActive = false
+    running = undefined
   }
 }
 
 btn_forest.addEventListener('click', function(){
-  verifySoundState(btn_forest)
+  verifySoundState(btn_forest, "forest")
 })
 
 btn_rain.addEventListener('click', function(){
-  verifySoundState(btn_rain)
+  verifySoundState(btn_rain, "rain")
 })
 
 btn_crowd.addEventListener('click', function(){
