@@ -15,7 +15,10 @@ const icon_rain = document.querySelector("#rain-icon")
 const btn_fire = document.querySelector("#fire")
 const icon_fire = document.querySelector("#fire-icon")
 
+const bg_btn_active = "rgb(2, 121, 157)"
+const bg_btn_inactive = "rgb(225, 225, 230)"
 
+let running
 
 
 export const Elements ={
@@ -36,5 +39,8 @@ export const Elements ={
   btn_plus,
   btn_minus,
 
-  
+  running,
+
+  bg_btn_inactive,
+  bg_btn_active
 }
